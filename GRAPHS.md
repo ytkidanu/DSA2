@@ -164,4 +164,56 @@ For the node 's' with a distance of 0, the base case holds true here.
 - Utilizes 7 equations and 7 multiplications along with 18 additions.
 - The number of subproblems is 7, which is smaller than 8.
 - Strassen found a way to reduce it to 7 subproblems.
-Therefore, the recurrence relation is: \( T(n) = 2T\left(\frac{n}{2}\right) + n \)
+---
+## Recurrence Relations in Divide and Conquer Algorithms
+
+Provide a recurrence relation to express the running time of a divide and conquer algorithm Solve recurrence relations using the Master Theorem and the Tree method. (We will give you the cases and text of the Master Theorem, so you don’t need to memorize it.)
+
+### Recurrence Equation:
+
+Given:
+- **Divide:** 0 comparisons
+- **Conquer:** Recursive on 2 small problems of size n/2
+- **Combine:** n comparisons
+
+Therefore, the recurrence relation is: T(n) = 2T(n/2) + n
+
+### Induction Approach:
+
+**Goal:** Prove P(k) holds.
+**Base Case:** P(1) holds.
+**Inductive Hypothesis:** Holds for all P(x) less than x greater than x, whatever that means.
+
+### Guess and Check:
+
+- T(n) = O(g(n))
+- Consider: g * n = c * g(n)
+
+**Induction:**
+Show T(1) < g(1) which is also true for x and x+1.
+
+### Karatsuba Guess and Check:
+
+Given: T(n) = 3T(n/2) + 8n
+
+- T(n) <= c * n^1.6 = O(n^1.6)
+- Base case: T(1) = 8 <= 3000
+
+### General Recurrence: T(n) = aT(n/b) + f(n)
+
+**Case 1:** If f(n) is in O(n^logb(a-ϵ)) where ϵ > 0, f(n) grows a little slower.
+**Case 2:** If f(n) grows at exactly the same rate as n^logb(a).
+**Case 3:** If f(n) grows more quickly than n^logb(a).
+
+**Examples:**
+
+- For T(n) = 2T(n/2) + n:
+  - Delta = logb(a) = log22 = 1
+  - Compare f(n) to n^delta = n^1 = n
+  - As f(n) matches n^1, T(n) = n log n
+
+- For T(n) = 4T(n/2) + 5n:
+  - Delta = log24 = 2
+  - f(n) = 5n is slower than delta, so f(n) = O(n^2-1)
+  - Case 1: Polynomial n to some constant (n^c)
+  - Exponential is a constant to the power of n (c^n) - grows much more quickly.
