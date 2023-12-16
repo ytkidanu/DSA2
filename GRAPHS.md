@@ -16,8 +16,8 @@ little omega
 
 Strictly larger
  
-***be sure to know how they relate to evaluating the running time of algorithms
- Be able to demonstrate asymptotic bounds of functions ***
+****be sure to know how they relate to evaluating the running time of algorithms
+ Be able to demonstrate asymptotic bounds of functions ****
  
  
 
